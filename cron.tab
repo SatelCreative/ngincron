@@ -1,0 +1,2 @@
+# Once a day at 9:09 UTC, reload nginx's conf
+9 9 * * * /scripts/reloadconf.sh

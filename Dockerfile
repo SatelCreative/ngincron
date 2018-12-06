@@ -1,8 +1,12 @@
 FROM nginx:1.15
 
-RUN apt-get update -q -q && apt-get install cron --yes
+RUN apt-get update -q -q && apt-get install cron --yes && mkdir /scripts
 
-COPY reloadconf.sh /etc/cron.daily
-COPY start.sh ./
+COPY cron.tab /scripts
 
-CMD ["./start.sh"]
+RUN crontab /scripts/cron.tab
+
+COPY reloadconf.sh /scripts
+COPY start.sh /scripts
+
+CMD ["/scripts/start.sh"]
