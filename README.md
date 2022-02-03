@@ -1,3 +1,5 @@
+OBSOLETE now that we are using Traefik
+
 # ngincron
 nginx docker image with cron added to reload conf once a day
 
